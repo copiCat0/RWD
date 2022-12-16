@@ -104,8 +104,7 @@ input[type="search"] {
     flex-grow: 1;
   }
 
-
-  /*  모바일 메인메뉴 제어버튼 */
+  /* 모바일 메인메뉴 제어버튼 */
   .buttonWrapper {
     padding: var(--spacing-xxs);
     overflow: hidden;
@@ -128,6 +127,7 @@ input[type="search"] {
   .button--burgerBarTop,
   .button--burgerBarMiddle,
   .button--burgerBarBottom {
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: 20%;
@@ -151,13 +151,13 @@ input[type="search"] {
     transform: translateY(-100%);
   }
 
-  .button--burger.is--active .button--burgerBarMiddle {
-    transform: translate(-150%, -50%);
-  }
-
   .button--burger.is--active .button--burgerBarTop {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
+  }
+
+  .button--burger.is--active .button--burgerBarMiddle {
+    transform: translate(-150%, -50%);
   }
 
   .button--burger.is--active .button--burgerBarBottom {
@@ -165,7 +165,23 @@ input[type="search"] {
     transform: translateY(-50%) rotate(-45deg);
   }
 
- 
+  .menu__list{
+    background: var(--accent-opacity-color);
+    position :fixed;
+    top:0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 100;
+    backdrop-filter: blur(2px);
+    transform:translateX(-105%);
+    transition: all 200ms;
+  }
+  
+  .menu.is--active .menu__list{
+    transform: none;
+  }
+
 }
 
 /* 데스크탑 디바이스 (Desktop Device) */
@@ -175,7 +191,6 @@ input[type="search"] {
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    background-color: gold;
   }
 
   /* 데스크탑 로고 */
@@ -198,23 +213,31 @@ input[type="search"] {
   .button--burger {
     display: none;
   }
-}
 
-/* 데스크탑 메인 메뉴 */
-.menu{
+  /* 데스크탑 메인 메뉴 */
+  .menu {
+    background: var(--secondary-color);
+    padding: var(--spacing-base) var(--spacing-lg);
+  }
 
-}
+  .menu__list {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.menu__list{
-  
-}
-
-.menu__item{
-
-}
-
-.menu__link{
-  
+  .menu__link {
+    display: block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
+  }
 }
 
 /* 고해상도 배경이미지 미디어쿼리 */
