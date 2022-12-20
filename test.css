@@ -1,0 +1,30 @@
+*{
+  box-sizing:border-box;
+}
+
+.par{
+  width:400px;
+  background :red;
+  height :30px;
+  padding:20px;
+}
+
+.chi{
+  background-color: green;
+  padding-left: 30px;
+  width: 100%;
+}
+
+.par2{
+  padding:20px;
+
+  width:400px;
+  background :red;
+  height :30px;
+}
+
+.chi2{
+  background-color: blue;
+  padding-left: 30px;
+  width: auto;
+}
